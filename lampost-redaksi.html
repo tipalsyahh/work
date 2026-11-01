@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lampost — Sistem Pengelolaan Redaksi</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'sans-serif'],
+            display: ['"Special Elite"', 'serif'],
+          },
+          colors: {
+            wandor: {
+              dark: '#0a0a0a',
+              text: '#1a1a1a',
+              muted: '#767676',
+              prompt: '#905831',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Geist', sans-serif;
+      overflow-x: hidden;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    /* Liquid glass prompt card styling */
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.06);
+      border: 3px solid #ffffff;
+      border-radius: 44px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .upload-glass {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-wandor-text bg-white">
+
+  <!-- Single Section filling the viewport -->
+  <section class="relative min-h-svh w-full overflow-hidden flex flex-col justify-between">
+    
+    <!-- Background video (z-0) -->
+    <video 
+      class="absolute inset-0 w-full h-full object-cover z-0" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      src="https://pollen-batch-41236914.figma.site/_components/v2/f0ee2dae7671c170c34f12e31c4cb41418976c98/769c564298c132f7919405cd9f17c1b1231f341d.769c5642.mp4"
+    ></video>
+
+    <!-- Top gradient overlay (z-1) -->
+    <div 
+      class="absolute inset-x-0 top-0 h-[687px] pointer-events-none z-[1]" 
+      style="background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);"
+    ></div>
+
+    <!-- Content wrapper (z-2) -->
+    <div class="relative z-[2] max-w-[1360px] w-full mx-auto flex flex-col flex-1">
+
+      <!-- Hero body -->
+      <div class="flex flex-col items-center px-4 md:px-6 pt-6 md:pt-10 pb-12 md:pb-16 text-center my-auto w-full">
+        <!-- Headline -->
+        <h1 class="font-sans text-[clamp(32px,5vw,56px)] font-semibold text-wandor-text leading-[1.1] tracking-[-0.03em] max-w-[850px] mb-3">
+          Sistem Pengelolaan Redaksi
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="font-sans text-base md:text-lg font-medium text-wandor-muted leading-relaxed max-w-[600px] mb-6">
+          Solusi terpadu penugasan liputan, pengumpulan naskah, penyuntingan, verifikasi faktual, hingga penerbitan berita secara profesional.
+        </p>
+
+        <!-- Liquid Glass Card Slider Container -->
+        <div class="relative w-full max-w-[840px] liquid-glass p-6 md:p-8 text-left backdrop-blur-md overflow-hidden">
+          
+          <!-- Slider Track Wrapper -->
+          <div class="relative overflow-hidden w-full">
+            <div id="card-slider" class="flex transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+              
+              <!-- Card 1 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">✍️</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">1. Penugasan Liputan & Perencanaan Berita</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Redaktur memberikan tugas peliputan kepada wartawan: topik, lokasi, narasumber, tenggat waktu.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencatat rapat redaksi, agenda harian/mingguan, dan prioritas pemberitaan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mendukung liputan portal online (Lampost.co) maupun edisi cetak (Lampung Post).</li>
+                      <li class="flex items-start gap-2"><span>•</span> Status naskah: <span class="font-semibold text-wandor-prompt">Ditugaskan → Sedang Ditulis → Dikirim → Disunting → Disetujui → Terbit</span>.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📝</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">2. Pengumpulan Naskah & Materi</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Wadah pengiriman naskah dari wartawan ke meja redaksi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengunggah materi pendamping: foto, video, grafik, rekaman wawancara.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menyertakan data sumber: nama narasumber, tempat/tanggal peristiwa, fakta pendukung.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menyimpan versi draf agar dapat disunting berulang kali tanpa kehilangan naskah awal.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">✏️</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">3. Penyuntingan & Pemeriksaan Konten</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Redaktur melakukan penyuntingan naskah: kejelasan, gaya bahasa, kesesuaian fakta, dan etika jurnalistik.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Memeriksa kesesuaian dengan Pedoman Media Siber & Kode Etik Jurnalistik.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Status revisi: <span class="font-semibold text-wandor-prompt">Menunggu Penyuntingan → Perlu Perbaikan → Disetujui → Ditolak</span> disertai catatan alasan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menandai bagian yang perlu dikonfirmasi ulang atau dilengkapi datanya.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🔐</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">4. Pemeriksaan Faktual & Persetujuan Penerbitan</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Memverifikasi akurasi fakta, data, nama, gelar, tempat, dan waktu peristiwa.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menyesuaikan dengan kebijakan redaksional dan arah pemberitaan media.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Alur persetujuan bertingkat: <span class="font-semibold text-wandor-prompt">Redaktur → Redaktur Pelaksana → Pemimpin Redaksi</span>.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencatat siapa yang menyetujui berita sebelum tayang — jejak tanggung jawab.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📤</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">5. Penerbitan ke Portal & Arsip</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Setelah disetujui, naskah dikirim langsung ke sistem penerbitan Lampost.co.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menetapkan kategori, tag, foto sampul, judul utama & judul alternatif untuk SEO.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengatur jadwal tayang: segera terbit atau dijadwalkan pada waktu tertentu.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Tersimpan permanen di arsip internal untuk pelacakan, rujukan, atau peninjauan ulang.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📊</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">6. Pemantauan Kinerja Konten & Individu</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Menampilkan data performa: jumlah pembaca, dibagikan, dikomentari per berita.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menghitung produktivitas wartawan: jumlah naskah per periode, yang terbit, yang ditolak.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengevaluasi tema & cakupan pemberitaan: keseimbangan liputan wilayah, topik, dan sumber.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menyediakan bahan evaluasi kinerja tim redaksi secara berkala.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🔄</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">7. Integrasi Kerja Antarbagian</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Terhubung dengan tim foto & video: permintaan jepretan atau dokumentasi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Terhubung dengan tim desain & tata letak untuk edisi cetak koran.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Terhubung dengan bagian pemasaran: pemberitaan terkait edisi khusus atau tema kerja sama.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Terhubung dengan sistem arsip pencarian untuk referensi naskah terdahulu.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 8 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🔐</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">8. Kontrol Akses & Keamanan Internal</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-1.5 pl-2 text-xs md:text-sm">
+                      <li class="flex items-start gap-1"><span>•</span> <b>Wartawan:</b> Kirim naskah & materi liputan</li>
+                      <li class="flex items-start gap-1"><span>•</span> <b>Redaktur:</b> Sunting, periksa fakta, beri keputusan</li>
+                      <li class="flex items-start gap-1"><span>•</span> <b>Manajemen Redaksi:</b> Kebijakan, persetujuan akhir, evaluasi</li>
+                      <li class="flex items-start gap-1"><span>•</span> <b>Administrator:</b> Kelola akun & sistem</li>
+                      <li class="flex items-start gap-1 pt-1"><span>•</span> Mencatat siapa & kapan mengubah data (jejak audit) serta membatasi akses aman internal.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Navigation Controls -->
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-white/40">
+            <!-- Indicator Dots -->
+            <div class="flex items-center gap-2" id="slider-dots">
+              <!-- Dots dynamically active -->
+            </div>
+
+            <!-- Slide Counter & Buttons -->
+            <div class="flex items-center gap-4">
+              <span id="slide-counter" class="font-sans text-xs md:text-sm font-semibold text-wandor-muted">1 / 8</span>
+              
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="prevSlide()" aria-label="Previous Slide" class="w-10 h-10 upload-glass rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all text-wandor-text cursor-pointer">
+                  ❮
+                </button>
+                <button type="button" onclick="nextSlide()" aria-label="Next Slide" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#333] active:scale-95 transition-all cursor-pointer">
+                  ❯
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workflow Overview Bar -->
+          <div class="mt-6 pt-4 border-t border-white/30">
+            <div class="text-xs font-bold uppercase tracking-wider text-wandor-prompt mb-2 flex items-center gap-1.5">
+              <span>🧭</span> Alur Kerja Secara Umum:
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 text-[11px] md:text-xs font-medium text-wandor-text/80 bg-white/30 p-2.5 rounded-2xl border border-white/40">
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Rapat Redaksi</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Tugas Liputan</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Tulis Naskah</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Kirim</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Sunting</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Cek Fakta</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Setujui</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Tayang</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Pantau Performa</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Arsip</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Slider Script Logic -->
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 8;
+
+    function initDots() {
+      const dotsContainer = document.getElementById('slider-dots');
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `h-2 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-black' : 'w-2 bg-black/20'}`;
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateSlider() {
+      const slider = document.getElementById('card-slider');
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.getElementById('slide-counter').innerText = `${currentSlide + 1} / ${totalSlides}`;
+      initDots();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    // Initialize dots on page load
+    initDots();
+  </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wandor — Sistem Pengelolaan Periklanan</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'sans-serif'],
+            display: ['"Special Elite"', 'serif'],
+          },
+          colors: {
+            wandor: {
+              dark: '#0a0a0a',
+              text: '#1a1a1a',
+              muted: '#767676',
+              prompt: '#905831',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Geist', sans-serif;
+      overflow-x: hidden;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    /* Liquid glass prompt card styling */
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.06);
+      border: 3px solid #ffffff;
+      border-radius: 44px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .upload-glass {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-wandor-text bg-white">
+
+  <!-- Single Section filling the viewport -->
+  <section class="relative min-h-svh w-full overflow-hidden flex flex-col justify-between">
+    
+    <!-- Background video (z-0) -->
+    <video 
+      class="absolute inset-0 w-full h-full object-cover z-0" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      src="https://pollen-batch-41236914.figma.site/_components/v2/f0ee2dae7671c170c34f12e31c4cb41418976c98/769c564298c132f7919405cd9f17c1b1231f341d.769c5642.mp4"
+    ></video>
+
+    <!-- Top gradient overlay (z-1) -->
+    <div 
+      class="absolute inset-x-0 top-0 h-[687px] pointer-events-none z-[1]" 
+      style="background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);"
+    ></div>
+
+    <!-- Content wrapper (z-2) -->
+    <div class="relative z-[2] max-w-[1360px] w-full mx-auto flex flex-col flex-1">
+
+      <!-- Hero body -->
+      <div class="flex flex-col items-center px-4 md:px-6 pt-6 md:pt-10 pb-12 md:pb-16 text-center my-auto w-full">
+        <!-- Headline -->
+        <h1 class="font-sans text-[clamp(32px,5vw,56px)] font-semibold text-wandor-text leading-[1.1] tracking-[-0.03em] max-w-[850px] mb-3">
+          Sistem Pengelolaan Periklanan
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="font-sans text-base md:text-lg font-medium text-wandor-muted leading-relaxed max-w-[600px] mb-6">
+          Solusi terpadu pemrosesan pesanan, penjadwalan tata letak, verifikasi materi, hingga pelaporan analitik iklan.
+        </p>
+
+        <!-- Liquid Glass Card Slider Container -->
+        <div class="relative w-full max-w-[840px] liquid-glass p-6 md:p-8 text-left backdrop-blur-md overflow-hidden">
+          
+          <!-- Slider Track Wrapper -->
+          <div class="relative overflow-hidden w-full">
+            <div id="card-slider" class="flex transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+              
+              <!-- Card 1 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📝</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">1. Pencatatan & Pemrosesan Pesanan Iklan</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Menerima data pemesanan iklan dari staf pemasaran: jenis iklan, ukuran, tanggal terbit, durasi tayang, dan kolom yang dipilih.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mendukung iklan cetak (koran Lampung Post) maupun digital (portal Lampost.co).</li>
+                      <li class="flex items-start gap-2"><span>•</span> Memberikan nomor pesanan unik sebagai acuan pelacakan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menetapkan status pesanan: <span class="font-semibold text-wandor-prompt">Diajukan → Diverifikasi → Disetujui → Diterbitkan → Selesai</span>.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📋</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">2. Pengelolaan Inventaris & Jadwal Tayang</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Memantau ketersediaan ruang iklan agar tidak terjadi pemesanan ganda pada posisi/tanggal yang sama.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menjadwalkan kapan iklan masuk proses tata letak, kapan diterbitkan, dan kapan berakhir.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengelola batas waktu pengiriman materi dan tenggang persetujuan sebelum tanggal terbit.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menyesuaikan urutan penayangan iklan sesuai prioritas atau permintaan khusus pelanggan.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">✅</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">3. Pemeriksaan Materi & Persetujuan Konten</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Mengunggah, menampilkan, dan memverifikasi berkas materi iklan (gambar, teks, PDF).</li>
+                      <li class="flex items-start gap-2"><span>•</span> Petugas layout/redaksi memeriksa kesesuaian ukuran, format, dan kesesuaian isi dengan aturan perusahaan & hukum periklanan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Memberikan status: <span class="font-semibold text-wandor-prompt">Menunggu Persetujuan → Disetujui → Perlu Revisi → Ditolak</span> dengan catatan alasan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengirim notifikasi ke bagian penjualan & pelanggan terkait hasil peninjauan.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">💰</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">4. Penetapan Harga & Penagihan Otomatis</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Menerapkan daftar tarif resmi sesuai jenis, ukuran, posisi, dan frekuensi pemasangan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menghitung total tagihan, diskon kontrak, pajak, dan biaya tambahan secara otomatis.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencetak/mengeluarkan faktur tagihan yang sah ke pelanggan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencatat jatuh tempo pembayaran dan mengelola pengingat untuk pelanggan yang belum melunasi.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">💳</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">5. Konfirmasi Pembayaran & Pelacakan Transaksi</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Memverifikasi bukti setoran/pembayaran yang masuk — mencocokkan nominal dengan tagihan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Memperbarui status dari <span class="font-semibold text-wandor-prompt">Belum Dibayar → Sebagian Dibayar → Lunas</span>.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Membuka akses penuh ke proses penerbitan iklan setelah pembayaran dikonfirmasi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencatat riwayat lengkap: tanggal bayar, metode, nomor referensi, dan petugas verifikasi.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">👥</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">6. Basis Data Pelanggan & Riwayat Kerjasama</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Menyimpan profil pelanggan: nama instansi, kontak, alamat, kategori bisnis, dan penanggung jawab.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menampilkan riwayat pemesanan lengkap sejak pertama kali bekerja sama.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencatat status pelanggan: pelanggan baru, pelanggan tetap, atau pelanggan kontrak jangka panjang.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Membantu staf penjualan menawarkan paket khusus atau diskon loyalitas.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📊</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">7. Laporan & Analitik Penjualan</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Menampilkan dashboard ringkasan: jumlah pesanan harian/bulanan, pendapatan, perbandingan periode.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Membuat laporan berdasarkan kategori: jenis iklan, wilayah, staf pemasaran, atau sumber pendapatan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Melacak pesanan yang dibatalkan atau tidak terbayar untuk evaluasi kinerja.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menyediakan data bagi pimpinan dalam menyusun target & strategi penjualan berikutnya.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 8 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🔐</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">8. Kontrol Akses & Keamanan Internal</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-1.5 pl-2 text-xs md:text-sm">
+                      <li class="flex items-start gap-1"><span>•</span> <b>Staf Pemasaran:</b> Membuat pesanan & melayani pelanggan</li>
+                      <li class="flex items-start gap-1"><span>•</span> <b>Bagian Produksi/Layout:</b> Memeriksa materi & menjadwalkan</li>
+                      <li class="flex items-start gap-1"><span>•</span> <b>Keuangan:</b> Memverifikasi pembayaran & mengelola faktur</li>
+                      <li class="flex items-start gap-1"><span>•</span> <b>Administrator:</b> Mengelola sistem & akun pengguna</li>
+                      <li class="flex items-start gap-1 pt-1"><span>•</span> Mencatat siapa & kapan mengubah setiap data (jejak audit) serta melindungi data keuangan dari akses luar.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Navigation Controls -->
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-white/40">
+            <!-- Indicator Dots -->
+            <div class="flex items-center gap-2" id="slider-dots">
+              <!-- Dots dynamically active -->
+            </div>
+
+            <!-- Slide Counter & Buttons -->
+            <div class="flex items-center gap-4">
+              <span id="slide-counter" class="font-sans text-xs md:text-sm font-semibold text-wandor-muted">1 / 8</span>
+              
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="prevSlide()" aria-label="Previous Slide" class="w-10 h-10 upload-glass rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all text-wandor-text cursor-pointer">
+                  ❮
+                </button>
+                <button type="button" onclick="nextSlide()" aria-label="Next Slide" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#333] active:scale-95 transition-all cursor-pointer">
+                  ❯
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workflow Overview Bar -->
+          <div class="mt-6 pt-4 border-t border-white/30">
+            <div class="text-xs font-bold uppercase tracking-wider text-wandor-prompt mb-2 flex items-center gap-1.5">
+              <span>🧭</span> Alur Kerja Secara Umum:
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 text-[11px] md:text-xs font-medium text-wandor-text/80 bg-white/30 p-2.5 rounded-2xl border border-white/40">
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Pemesanan</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Verifikasi</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Unggah Materi</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Persetujuan Konten</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Terbit</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Tagihan</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Konfirmasi Pembayaran</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Laporan</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Slider Script Logic -->
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 8;
+
+    function initDots() {
+      const dotsContainer = document.getElementById('slider-dots');
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `h-2 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-black' : 'w-2 bg-black/20'}`;
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateSlider() {
+      const slider = document.getElementById('card-slider');
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.getElementById('slide-counter').innerText = `${currentSlide + 1} / ${totalSlides}`;
+      initDots();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    // Initialize dots on page load
+    initDots();
+  </script>
+</body>
+</html>

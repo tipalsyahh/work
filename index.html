@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lampost Work System — Workspace Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .hero-overlap-heading { margin-top: -12px; }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900 antialiased selection:bg-[#202A36] selection:text-white">
+  <div class="min-h-screen bg-gray-50 flex flex-col">
+    <section class="relative h-screen w-full overflow-hidden">
+      
+      <!-- Video Background -->
+      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_091828_e240eb17-6edc-4129-ad9d-98678e3fd238.mp4" type="video/mp4">
+      </video>
+
+      <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/30 to-white/60 backdrop-blur-[1px] z-[1]"></div>
+
+      <div class="relative z-10 h-full flex flex-col justify-between">
+        
+        <!-- Navigation Bar -->
+        <header class="w-full">
+          <nav class="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between relative" aria-label="Main Navigation">
+            <a href="lampost-work.html" target="_blank" rel="noopener noreferrer" class="text-2xl font-semibold text-gray-900 tracking-tight flex items-center gap-2 group">
+              <span>Lampost Work</span>
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#202A36] opacity-80 group-hover:scale-125 transition-transform"></span>
+            </a>
+
+            <!-- Updated Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6 lg:gap-8">
+              <a href="lampost-work.html" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Work System</a>
+              <a href="lampost-absensi.html" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Absensi</a>
+              <a href="lampost-redaksi.html" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Redaksi</a>
+              <a href="lampost-medsos.html" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Medsos Portal</a>
+              <a href="lampost-tiketing.html" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Ticketing</a>
+            </div>
+
+            <div class="hidden md:flex items-center">
+              <a href="#login" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-wider font-semibold px-4 py-2 rounded-full border border-gray-900/15 text-gray-900 hover:bg-[#202A36] hover:text-white transition-all duration-300">
+                Staff Portal
+              </a>
+            </div>
+
+            <div class="md:hidden flex items-center">
+              <button id="menu-toggle-btn" type="button" class="p-2 rounded-lg text-gray-900 hover:text-gray-700 focus:outline-none">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+              </button>
+            </div>
+
+            <div id="mobile-dropdown" class="hidden md:hidden absolute top-full left-6 right-6 mt-3 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-100 p-6 flex-col gap-4 z-50">
+              <a href="lampost-work.html" target="_blank" rel="noopener noreferrer" class="text-base font-medium text-gray-900">Work System</a>
+              <a href="lampost-absensi.html" target="_blank" rel="noopener noreferrer" class="text-base font-medium text-gray-900">Absensi</a>
+              <a href="lampost-redaksi.html" target="_blank" rel="noopener noreferrer" class="text-base font-medium text-gray-900">Redaksi</a>
+              <a href="lampost-medsos.html" target="_blank" rel="noopener noreferrer" class="text-base font-medium text-gray-900">Medsos Portal</a>
+              <a href="lampost-tiketing.html" target="_blank" rel="noopener noreferrer" class="text-base font-medium text-gray-900">Ticketing</a>
+            </div>
+          </nav>
+        </header>
+
+        <!-- Main Hero Content -->
+        <main class="flex-1 flex items-center justify-center px-4">
+          <div class="text-center flex flex-col items-center justify-center max-w-4xl mx-auto -mt-80 px-4">
+
+            <div class="flex flex-col items-center">
+              <h3 class="text-1xl md:text-7xl lg:text-8xl font-normal text-gray-500 leading-none tracking-tighter">
+                Website Kami
+              </h3>
+            </div>
+
+            <p class="text-lg md:text-xl text-gray-600 mb-6 max-w-2xl mt-4 font-normal">
+              Kelola seluruh alur penugasan tim dan proyek harian Lampost secara terpusat dan terstruktur.
+            </p>
+          </div>
+        </main>
+
+        <footer class="w-full pb-6 px-8 flex items-center justify-between text-xs text-gray-600 max-w-7xl mx-auto">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Work Management Active</span>
+          </div>
+          <div class="hidden sm:flex items-center gap-6">
+            <span>Role-Based Access Control</span>
+            <span>Real-time Task Monitor</span>
+          </div>
+        </footer>
+
+      </div>
+    </section>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    const menuToggleBtn = document.getElementById('menu-toggle-btn');
+    const mobileDropdown = document.getElementById('mobile-dropdown');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (menuToggleBtn && mobileDropdown) {
+      menuToggleBtn.addEventListener('click', () => {
+        mobileDropdown.classList.toggle('hidden');
+        mobileDropdown.classList.toggle('flex');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>

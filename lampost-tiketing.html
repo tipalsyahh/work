@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lampost — Sistem Ticketing & Pelaporan Kendala</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'sans-serif'],
+            display: ['"Special Elite"', 'serif'],
+          },
+          colors: {
+            wandor: {
+              dark: '#0a0a0a',
+              text: '#1a1a1a',
+              muted: '#767676',
+              prompt: '#905831',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Geist', sans-serif;
+      overflow-x: hidden;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    /* Liquid glass prompt card styling */
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.06);
+      border: 3px solid #ffffff;
+      border-radius: 44px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .upload-glass {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-wandor-text bg-white">
+
+  <!-- Single Section filling the viewport -->
+  <section class="relative min-h-svh w-full overflow-hidden flex flex-col justify-between">
+    
+    <!-- Background video (z-0) -->
+    <video 
+      class="absolute inset-0 w-full h-full object-cover z-0" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      src="https://pollen-batch-41236914.figma.site/_components/v2/f0ee2dae7671c170c34f12e31c4cb41418976c98/769c564298c132f7919405cd9f17c1b1231f341d.769c5642.mp4"
+    ></video>
+
+    <!-- Top gradient overlay (z-1) -->
+    <div 
+      class="absolute inset-x-0 top-0 h-[687px] pointer-events-none z-[1]" 
+      style="background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);"
+    ></div>
+
+    <!-- Content wrapper (z-2) -->
+    <div class="relative z-[2] max-w-[1360px] w-full mx-auto flex flex-col flex-1">
+
+      <!-- Hero body -->
+      <div class="flex flex-col items-center px-4 md:px-6 pt-6 md:pt-10 pb-12 md:pb-16 text-center my-auto w-full">
+        <!-- Headline -->
+        <h1 class="font-sans text-[clamp(32px,5vw,56px)] font-semibold text-wandor-text leading-[1.1] tracking-[-0.03em] max-w-[850px] mb-3">
+          Sistem Ticketing & Pelaporan Kendala
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="font-sans text-base md:text-lg font-medium text-wandor-muted leading-relaxed max-w-[600px] mb-6">
+          Solusi terpadu pelaporan kendala IT, penugasan teknisi, penanganan perangkat & jaringan, hingga pemantauan status tiket transparan.
+        </p>
+
+        <!-- Liquid Glass Card Slider Container -->
+        <div class="relative w-full max-w-[840px] liquid-glass p-6 md:p-8 text-left backdrop-blur-md overflow-hidden">
+          
+          <!-- Slider Track Wrapper -->
+          <div class="relative overflow-hidden w-full">
+            <div id="card-slider" class="flex transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+              
+              <!-- Card 1 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📤</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">1. Pelaporan Kendala Terstruktur</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Karyawan memilih kategori masalah agar cepat ditangani tim yang tepat.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menyebutkan ruangan, nomor meja, atau perangkat yang bermasalah.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menjelaskan gejala secara rinci agar teknisi memahami sebelum ke lokasi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Status tiket: <span class="font-semibold text-wandor-prompt">Dilaporkan → Ditetapkan → Sedang Diperiksa → Sedang Diperbaiki → Selesai</span>.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🖥️</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">2. Kategori 1 — Perangkat Keras / PC & Laptop</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Melaporkan kerusakan fisik: mati total, layar blank/bergaris, suara bising, keyboard/mouse tidak terdeteksi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencakup perangkat: PC meja, monitor, CPU, laptop kantor.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Teknisi memeriksa perangkat keras, suku cadang, atau kabel penghubung.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencatat riwayat kerusakan agar terlihat pola gangguan pada perangkat tertentu.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📝</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">3. Kategori 2 — Perangkat Lunak & Aplikasi Kantor</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Masalah: Microsoft Office hang/lisensi habis, aplikasi internal error, Windows rusak, dugaan malware/virus.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencakup: sistem operasi, paket perkantoran, aplikasi internal seperti ERPLapor.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Tim IT melakukan pemulihan, pembaruan lisensi, pemindaian keamanan, atau pemasangan ulang.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Memberikan panduan pencegahan agar masalah tidak terulang.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🌐</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">4. Kategori 3 — Jaringan & Koneksi Internet</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Melaporkan: Wi-Fi tidak tersambung, kabel LAN putus/lepas, VPN kantor terputus, folder bersama tidak bisa dibuka.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencakup: jaringan nirkabel, kabel, server berbagi data, akses jarak jauh.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Memastikan kestabilan koneksi agar seluruh sistem internal (iklan, redaksi, absensi) tetap terhubung.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Prioritas lebih tinggi jika gangguan melumpuhkan banyak bagian sekaligus.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🖨️</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">5. Kategori 4 — Perangkat Cetak, Pemindai & Fotokopi</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Masalah: kertas macet (paper jam), lampu indikator merah, printer offline, hasil cetak bergaris, tinta/toner habis.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencakup: printer kantor, mesin pemindai, alat fotokopi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Memastikan perangkat siap pakai; mengatur pengisian ulang tinta/toner atau penggantian suku cadang.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencatat kapan perangkat terakhir diservis/diperbaiki.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🔑</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">6. Kategori 5 — Akun, Email & Hak Akses</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Permohonan: lupa kata sandi email, akun terkunci, pembuatan akun email karyawan baru, pengaturan hak akses.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mencakup: email kantor, akun sistem internal, login jaringan, izin berbagi data.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Memastikan setiap orang hanya mengakses yang menjadi wewenangnya — keamanan data perusahaan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengatur pembuatan & penonaktifan akun sesuai perubahan kepegawaian.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">⚡</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">7. Kategori 6 — Server & Gangguan Luar Biasa</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Khusus insiden yang melumpuhkan operasional satu divisi atau lebih secara bersamaan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Laporan langsung disalurkan ke hotline/telepon Ext. 108 selain sistem tiket.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mendapatkan prioritas penanganan tertinggi dibanding laporan biasa.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengaktifkan langkah pemulihan darurat agar kegiatan kantor segera normal kembali.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 8 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📊</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">8. Pemantauan Transparan & Riwayat Perbaikan</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Pelapor dapat melihat status tiketnya kapan saja — tidak perlu bertanya berulang-ulang.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Setiap perubahan status tercatat: siapa, kapan, dan apa yang dilakukan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Setelah selesai, tiket ditutup & disimpan sebagai arsip pengetahuan penanganan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Laporan berkala: jenis kerusakan terbanyak, waktu penanganan, kinerja tim IT.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Navigation Controls -->
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-white/40">
+            <!-- Indicator Dots -->
+            <div class="flex items-center gap-2" id="slider-dots">
+              <!-- Dots dynamically active -->
+            </div>
+
+            <!-- Slide Counter & Buttons -->
+            <div class="flex items-center gap-4">
+              <span id="slide-counter" class="font-sans text-xs md:text-sm font-semibold text-wandor-muted">1 / 8</span>
+              
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="prevSlide()" aria-label="Previous Slide" class="w-10 h-10 upload-glass rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all text-wandor-text cursor-pointer">
+                  ❮
+                </button>
+                <button type="button" onclick="nextSlide()" aria-label="Next Slide" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#333] active:scale-95 transition-all cursor-pointer">
+                  ❯
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workflow Overview Bar -->
+          <div class="mt-6 pt-4 border-t border-white/30">
+            <div class="text-xs font-bold uppercase tracking-wider text-wandor-prompt mb-2 flex items-center gap-1.5">
+              <span>🧭</span> Alur Kerja Secara Umum:
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 text-[11px] md:text-xs font-medium text-wandor-text/80 bg-white/30 p-2.5 rounded-2xl border border-white/40">
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Pilih Kategori</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Isi Formulir</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Kirim Laporan</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Tiket Dibuat</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Admin Tugaskan Teknisi</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Pemeriksaan Fisik/Jarak</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Perbaikan</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Uji Coba</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Selesai</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Arsip</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Slider Script Logic -->
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 8;
+
+    function initDots() {
+      const dotsContainer = document.getElementById('slider-dots');
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `h-2 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-black' : 'w-2 bg-black/20'}`;
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateSlider() {
+      const slider = document.getElementById('card-slider');
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.getElementById('slide-counter').innerText = `${currentSlide + 1} / ${totalSlides}`;
+      initDots();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    // Initialize dots on page load
+    initDots();
+  </script>
+</body>
+</html>
