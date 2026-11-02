@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lampost — Medsos Portal & Program Apresiasi</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'sans-serif'],
+            display: ['"Special Elite"', 'serif'],
+          },
+          colors: {
+            wandor: {
+              dark: '#0a0a0a',
+              text: '#1a1a1a',
+              muted: '#767676',
+              prompt: '#905831',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Geist', sans-serif;
+      overflow-x: hidden;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    /* Liquid glass prompt card styling */
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.06);
+      border: 3px solid #ffffff;
+      border-radius: 44px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .upload-glass {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-wandor-text bg-white">
+
+  <!-- Single Section filling the viewport -->
+  <section class="relative min-h-svh w-full overflow-hidden flex flex-col justify-between">
+    
+    <!-- Background video (z-0) -->
+    <video 
+      class="absolute inset-0 w-full h-full object-cover z-0" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      src="https://pollen-batch-41236914.figma.site/_components/v2/f0ee2dae7671c170c34f12e31c4cb41418976c98/769c564298c132f7919405cd9f17c1b1231f341d.769c5642.mp4"
+    ></video>
+
+    <!-- Top gradient overlay (z-1) -->
+    <div 
+      class="absolute inset-x-0 top-0 h-[687px] pointer-events-none z-[1]" 
+      style="background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);"
+    ></div>
+
+    <!-- Content wrapper (z-2) -->
+    <div class="relative z-[2] max-w-[1360px] w-full mx-auto flex flex-col flex-1">
+
+      <!-- Hero body -->
+      <div class="flex flex-col items-center px-4 md:px-6 pt-6 md:pt-10 pb-12 md:pb-16 text-center my-auto w-full">
+        <!-- Headline -->
+        <h1 class="font-sans text-[clamp(32px,5vw,56px)] font-semibold text-wandor-text leading-[1.1] tracking-[-0.03em] max-w-[850px] mb-3">
+          Medsos Portal & Apresiasi Komunitas
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="font-sans text-base md:text-lg font-medium text-wandor-muted leading-relaxed max-w-[600px] mb-6">
+          Platform interaktif apresiasi pembaca, pengumpulan poin media sosial, klaim voucher eksklusif, hingga pencapaian target bulanan.
+        </p>
+
+        <!-- Liquid Glass Card Slider Container -->
+        <div class="relative w-full max-w-[840px] liquid-glass p-6 md:p-8 text-left backdrop-blur-md overflow-hidden">
+          
+          <!-- Slider Track Wrapper -->
+          <div class="relative overflow-hidden w-full">
+            <div id="card-slider" class="flex transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+              
+              <!-- Card 1 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🎯</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">1. Program Apresiasi Komunitas — Mekanisme Poin</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Mengajak warga melakukan 5 langkah mudah di media sosial Lampung Post untuk mengumpulkan poin harian.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Setiap penyelesaian tugas otomatis memberi +100 Poin atau sesuai jenis aksi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Poin terakumulasi dan dapat dipantau langsung melalui halaman sistem.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Tujuan: meningkatkan jangkauan, keterlibatan, dan loyalitas pengikut akun resmi Lampung Post.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📱</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">2. Laporan Tugas Media Sosial — 5 Langkah</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Sistem Direct Report (pelaporan langsung) untuk memverifikasi tugas yang telah dikerjakan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Tugas mencakup interaksi: mengikuti, menyukai, membagikan, menandai teman, atau mengisi formulir.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Pengguna melampirkan bukti tangkapan layar/tautan sebagai konfirmasi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Status laporan: <span class="font-semibold text-wandor-prompt">Dikirim → Diverifikasi → Poin Ditambahkan → Tuntas</span>.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🎁</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">3. Voucher & Hadiah Eksklusif</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Poin yang terkumpul dapat diklaim/ditukar dengan berbagai voucher khusus.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Hadiah beragam: diskon mitra, langganan berita, barang promosi, atau undangan acara.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Tersedia katalog hadiah yang terbuka setelah syarat poin terpenuhi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Voucher memiliki masa berlaku dan ketentuan penukaran yang jelas.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📈</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">4. Reward Capaian Bulanan — Target Berjenjang</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Menetapkan target 25 laporan dalam satu periode untuk membuka hadiah lebih besar.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Capaian bulanan memberikan penghargaan instan yang otomatis terbuka begitu target tercapai.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mendorong konsistensi partisipasi masyarakat secara berkelanjutan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menampilkan progres: berapa sudah terkumpul, berapa lagi yang dibutuhkan.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📊</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">5. Pemantauan Tugas & Verifikasi</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Tim pengelola memeriksa keaslian laporan — memastikan bukan interaksi palsu.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menolak/mengembalikan laporan yang tidak memenuhi syarat beserta alasan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menampilkan riwayat partisipasi: tanggal, jenis tugas, poin diperoleh, status.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Membandingkan kinerja tiap platform: Instagram, TikTok, Facebook, dll.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">🔗</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">6. Integrasi Akun Media Sosial Resmi</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Terhubung langsung ke profil Instagram Lampung Post sebagai platform utama.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengarahkan ke akun media sosial lain untuk cakupan lebih luas.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Memastikan semua aktivitas terpusat — tidak terpecah di banyak tempat.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menjaga keseragaman pesan & identitas merek Lampung Post.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">👥</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">7. Keterlibatan Masyarakat & Pembaca</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Membuka kesempatan bagi siapa saja — bukan hanya karyawan — untuk berpartisipasi.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Membangun rasa kepemilikan bersama terhadap media warga Lampung.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengubah pembaca pasif menjadi penyebar berita aktif yang dihargai.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Jembatan dua arah: media mengenal pengikutnya, pengikut turut memajukan media.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 8 -->
+              <div class="w-full flex-shrink-0 px-2">
+                <div class="bg-white/40 rounded-3xl p-5 md:p-6 border border-white/60 shadow-sm backdrop-blur-sm min-h-[260px] flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">📋</span>
+                      <h3 class="font-sans font-bold text-lg md:text-xl text-wandor-text">8. Laporan Kinerja Media Sosial Internal</h3>
+                    </div>
+                    <ul class="text-sm md:text-base text-wandor-text/90 space-y-2 pl-2">
+                      <li class="flex items-start gap-2"><span>•</span> Tim konten melihat data dampak: pertumbuhan pengikut, jangkauan unggahan, tingkat keterlibatan.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Mengevaluasi jenis konten yang paling disukai/dibagikan warga.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Menyusun strategi peningkatan interaksi periode berikutnya.</li>
+                      <li class="flex items-start gap-2"><span>•</span> Data partisipasi menjadi bahan evaluasi efektivitas program apresiasi.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Navigation Controls -->
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-white/40">
+            <!-- Indicator Dots -->
+            <div class="flex items-center gap-2" id="slider-dots">
+              <!-- Dots dynamically active -->
+            </div>
+
+            <!-- Slide Counter & Buttons -->
+            <div class="flex items-center gap-4">
+              <span id="slide-counter" class="font-sans text-xs md:text-sm font-semibold text-wandor-muted">1 / 8</span>
+              
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="prevSlide()" aria-label="Previous Slide" class="w-10 h-10 upload-glass rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all text-wandor-text cursor-pointer">
+                  ❮
+                </button>
+                <button type="button" onclick="nextSlide()" aria-label="Next Slide" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#333] active:scale-95 transition-all cursor-pointer">
+                  ❯
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workflow Overview Bar -->
+          <div class="mt-6 pt-4 border-t border-white/30">
+            <div class="text-xs font-bold uppercase tracking-wider text-wandor-prompt mb-2 flex items-center gap-1.5">
+              <span>🧭</span> Alur Kerja Secara Umum:
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 text-[11px] md:text-xs font-medium text-wandor-text/80 bg-white/30 p-2.5 rounded-2xl border border-white/40">
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Masuk ke Halaman</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Pilih Tugas Medsos</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Lakukan 5 Langkah</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Kirim Bukti</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Verifikasi</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Poin Masuk</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Klaim Voucher</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Capai Target Bulanan</span> →
+              <span class="bg-white/60 px-2 py-0.5 rounded-md">Buka Hadiah Tambahan</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Slider Script Logic -->
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 8;
+
+    function initDots() {
+      const dotsContainer = document.getElementById('slider-dots');
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `h-2 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-black' : 'w-2 bg-black/20'}`;
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateSlider() {
+      const slider = document.getElementById('card-slider');
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.getElementById('slide-counter').innerText = `${currentSlide + 1} / ${totalSlides}`;
+      initDots();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    // Initialize dots on page load
+    initDots();
+  </script>
+</body>
+</html>
